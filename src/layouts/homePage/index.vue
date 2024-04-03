@@ -7,7 +7,7 @@
             <el-header class="grou">
                 <PageHeaderVue></PageHeaderVue>
             </el-header>
-            <el-main class="main">
+            <el-main class="main flex flex-col">
                 <RouterView></RouterView>
                 <el-footer v-if="app?.showFooter" class="pageFooter text-center">示例版权©2000-2019</el-footer>
             </el-main>
@@ -30,6 +30,7 @@ const app = inject<App>("app");
     color: #787878;
     --el-footer-height: auto;
     --el-footer-padding: 10px;
+    margin-top: auto;
 }
 
 .pageSection {
