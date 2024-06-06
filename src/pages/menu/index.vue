@@ -1,8 +1,7 @@
 <template>
 
     <PageContainer>
-        菜单管理
-        <div class="flex justify-center">
+        <div class="flex justify-center" v-demo="'123123'">
             <div>
                 未使用菜单
                 <VueDraggable group="menu" v-model="list" :animation="150" handle=".handle"
@@ -38,6 +37,9 @@
                 </VueDraggable>
             </div>
         </div>
+        <el-button @click="saveMenu">
+            
+        </el-button>
     </PageContainer>
 </template>
 
@@ -46,6 +48,8 @@ import { ref } from 'vue';
 import PageContainer from "@/components/page-utils/pageContainer.vue"
 import { VueDraggable } from 'vue-draggable-plus'
 import type { Menu } from '@/layouts/menu/index.vue';
+import request from "@/utils/request"
+
 const loading = ref(false)
 const list = ref<Menu[]>([]);
 const list2 = ref<Menu[]>([]);
@@ -73,7 +77,16 @@ setTimeout(() => {
     }];
     loading.value = false
 }, 3000);
-
+async function saveMenu(){
+async function submit() {
+    try {
+        const data =  request.Get("/user");
+        console.log(data)
+    } catch (error) {
+        console.log(error)
+    }
+}
+}
 </script>
 <style scoped lang="scss">
 .menu {

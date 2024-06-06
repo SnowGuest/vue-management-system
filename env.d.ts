@@ -1,6 +1,14 @@
 /// <reference types="vite/client" />
 import 'vue-router'
-
+import type { Directive } from "vue"
+declare module 'vue' {
+    export interface ComponentCustomProperties {
+        // 自定义vue指令
+        vDemo: Directive<HTMLElement, string>;
+    }
+}
+// 为了确保这个文件被当作一个模块，添加至少一个 `export` 声明
+export { }
 
 declare module 'vue-router' {
     interface RouteMeta {
@@ -22,5 +30,3 @@ interface ImportMeta {
     readonly env: ImportMetaEnv
 }
 
-// 为了确保这个文件被当作一个模块，添加至少一个 `export` 声明
-export { }
